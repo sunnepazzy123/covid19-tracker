@@ -16,7 +16,7 @@ class App extends Component {
 
   async componentDidMount(){
     const fetchedData = await fetchData();
-      console.log("from app component ", fetchedData);
+      // console.log("from app component ", fetchedData);
 
       this.setState({data: fetchedData});
   }
