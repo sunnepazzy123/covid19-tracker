@@ -15,7 +15,7 @@ const Cards = ({data:{confirmed, recovered, deaths, lastUpdate }}) => {
     let percentage;
     
         active += confirmed.value - recovered.value - deaths.value;
-       percentage += deaths.value/confirmed.value * 100;
+       percentage += deaths.value*100 /confirmed.value ;
      
   return (
     <div className={styles.container}>
