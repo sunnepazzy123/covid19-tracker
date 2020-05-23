@@ -12,9 +12,11 @@ const Cards = ({data:{confirmed, recovered, deaths, lastUpdate }}) => {
     }
 
     let active;
+    let percentage;
     
-        active = confirmed.value - recovered.value - deaths.value;
-
+        active += confirmed.value - recovered.value - deaths.value;
+       percentage += (deaths.value/confirmed.value) * 100;
+     
   return (
     <div className={styles.container}>
         <Grid container spacing={3} justify="center">
@@ -63,6 +65,8 @@ const Cards = ({data:{confirmed, recovered, deaths, lastUpdate }}) => {
                     </Typography>
                     <Typography color="textSecondary">{new Date(lastUpdate).toDateString()}</Typography>
                     <Typography variant="body2">Number of deaths cases of COVID-19</Typography>
+                    <Typography variant="body2">{percentage}% of deaths cases of COVID-19</Typography>
+                </CardContent>
                 </CardContent>
             </Grid>
         </Grid>
